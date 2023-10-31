@@ -1,0 +1,26 @@
+[package]
+name = "haproxy-acmedns"
+version = "0.2.0"
+edition = "2021"
+license = "MPL-2.0"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+instant-acme = { version = "0.3.4", default-features = false, features = ["hyper-rustls"] }
+hcl-rs = "0.16.2"
+clap = { version = "4.3.19", features = ["derive", "unicode"] }
+serde = { version = "1.0.176", features = ["derive"] }
+indexmap = { version = "2.0.0", features = ["serde"] }
+exitcode = "1.1.2"
+tokio = { version = "1.29.1", features = ["rt", "time", "rt-multi-thread", "net", "parking_lot", "fs", "bytes"] }
+hyper = { version = "^0.14.27", features = ["http1", "http2", "client", "runtime"] }
+hyper-rustls = { version = "^0.24.1", features = ["http2", "http1"] }
+serde_json = "1.0.104"
+rcgen = { version = "0.11.1", features = ["pem"] }
+pem = "3.0.2"
+ouroboros = "0.17.2"
+x509-parser = "0.15.0"
+
+[profile.release]
+strip = "debuginfo"
